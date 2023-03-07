@@ -12,7 +12,10 @@ v 0.0.1 :
 ## Instructions
 
 1. Install 
-   
-```
-pip install gravitas
-```
+
+! pip package unavailable for the time being.
+
+## Credit
+Solar system data :
+https://www.kaggle.com/datasets/jaredsavage/solar-system-major-bodies-data?resource=download
+
