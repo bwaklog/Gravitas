@@ -13,9 +13,8 @@ v 0.0.1 :
 
 1. Install 
 
-! pip package unavailable for the time being.
+	*! pip package unavailable for the time being.*
 
 ## Credit
-Solar system data :
-https://www.kaggle.com/datasets/jaredsavage/solar-system-major-bodies-data?resource=download
+* Solar system data : https://www.kaggle.com/datasets/jaredsavage/solar-system-major-bodies-data?resource=download
 
