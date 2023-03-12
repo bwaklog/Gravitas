@@ -1,8 +1,7 @@
+import os
 import numpy as np
 import math as mt
 import json
-import pprint
-import pandas
 
 
 class gravity(object):
@@ -70,8 +69,10 @@ class charge(object):
 
         return res
 
-    def dipole(self, qSep, point=[], t=False):
+    def dipole(self, qSep, point=None, t=False):
 
+        if point is None:
+            point = []
         pBar = self.ch * qSep
 
         # if point != []:
@@ -97,13 +98,9 @@ class atom(object):
     pass
 
 
-# earth = gravity('planet', 'Earth', 5.972E24, 6.371E6)
-# sol = gravity('star', 'Sol', 1.989E30, 6.934E8)
-# earth.NGFC(1.5109E11, sol, True)
 
-q1 = charge(2E-6)
-q2 = charge(4E-6)
-q3 = charge(8E-6)
+# q1 = charge(2E-6)
+# q2 = charge(4E-6)
 # q1.intr([[q2, 2]], True)
 
-q2.dipole(0.001, [2E-4, 0], True)
+# q2.dipole(0.001, [2E-4, 0], True)
