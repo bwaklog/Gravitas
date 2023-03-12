@@ -2,9 +2,30 @@ import os
 import numpy as np
 import math as mt
 import json
+import matplotlib.pyplot as plt
+import matplotlib.animation as anim
 
 
-class gravity(object):
+class object:
+    def __init__(self, mass, radius):
+        self.mass = mass
+        self.radius = radius
+        self.volume = (4 * np.pi * radius**3)/3
+        self.density = mass / self.volume
+
+    def nPhysics(self):
+        print({
+            'mass': self.mass,
+            'radius': self.radius,
+            'volume': self.volume,
+            'density': self.density
+        })
+    
+    
+    
+
+
+class pGravity(object):
 
     def __init__(self, cateogry, name, mass, radius):
         self.cat = cateogry
@@ -34,7 +55,8 @@ class gravity(object):
             'vOrb': vOrb,
             'T': revT,
             'freq': revT ** -1,
-            'omega': (2 * np.pi) / revT
+            'omega': (2 * np.pi) / revT,
+            'acc-g': ngf/m2
         }
 
         if t:
@@ -96,11 +118,3 @@ class charge(object):
 
 class atom(object):
     pass
-
-
-
-# q1 = charge(2E-6)
-# q2 = charge(4E-6)
-# q1.intr([[q2, 2]], True)
-
-# q2.dipole(0.001, [2E-4, 0], True)
