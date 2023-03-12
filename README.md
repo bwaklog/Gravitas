@@ -11,7 +11,7 @@ v 0.0.2 :
 v 0.0.1 :
 
    1. *Basic Newtons Gravitation Laws*
-   2. *Oribtal Velocity*
+   2. *Oribtal Velocity* (tentitive)
    3. *Simple Gravitation simulations*
 
 #### Project Map
