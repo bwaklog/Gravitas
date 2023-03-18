@@ -2,7 +2,6 @@ import phyEng as pe
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as anim
-from scipy.interpolate import interp2d
 
 fig, ax = plt.subplots()
 ax.set_xlim(0, 10)

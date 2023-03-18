@@ -1,9 +1,5 @@
-import os
 import numpy as np
-import math as mt
 import json
-import matplotlib.pyplot as plt
-import matplotlib.animation as anim
 
 
 class object:
@@ -118,3 +114,4 @@ class charge(object):
 
 class atom(object):
     pass
+
