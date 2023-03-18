@@ -35,4 +35,5 @@ v 0.0.6
 	*! pip package unavailable for the time being.*
 
 ## Credit
-* Solar system data : https://www.kaggle.com/datasets/jaredsavage/solar-system-major-bodies-data?resource=download
+Introduction to Physics Simulations : https://www.toptal.com/game/video-game-physics-part-i-an-introduction-to-rigid-body-dynamics
+<!-- * Solar system data : https://www.kaggle.com/datasets/jaredsavage/solar-system-major-bodies-data?resource=download -->
