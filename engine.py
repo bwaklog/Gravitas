@@ -2,7 +2,7 @@ from operator import index
 import random as rd
 import time
 
-NUM_PARTICLES = 2
+NUM_PARTICLES = 1
 
 # define two dimentional vector
 class vector2:
@@ -29,8 +29,8 @@ def PrintParticles():
     for i in range(NUM_PARTICLES):
         # particle = Particle(position=i[0], velocity=i[1], mass=i[2])
         particle = particles[i]
-        print(f"Particle[{i}] {particle.position}, {particle.velocity}, {particle.mass}")
-
+        # print(f"Particle[{i}] {particle.position}, {particle.velocity}, {particle.mass}")
+        print(f"Particle[{i}] {particle.position}")
 
 def InitializeParticles():
     for i in range(NUM_PARTICLES):
