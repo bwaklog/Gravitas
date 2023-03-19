@@ -93,7 +93,7 @@ class BoxShape:
         self.height = height
         self.mass = mass
 
-        moi = mass * (width**2, height**2) / 12
+        moi = mass * (width**2 * height**2) / 12
         self.momentOfInertia = moi
 
 #def CalculateBoxInertia(boxShape):
@@ -123,11 +123,11 @@ def PrintRigidBodies():
 def InitializeRigidBodies():
     for _ in range(NUM_RIGID_BODIES):
         rigidBody = RigidBody(
-               position=[rd.randint(0, 50), rd.randint(0, 50)],
+               position=vector2(x=rd.randint(0, 50), y=rd.randint(0, 50)).vec(),
                linearVelocity=[0, 0],
                angle=(rd.randint(0, 360))/360 * np.pi,
                angularVelocity=0,
-               force=0,
+               force=vector2(x=0, y=0).vec(),
                torque=0,
                shape=[1 + rd.randint(0, 2), 1 + rd.randint(0, 2), 1]
                )
