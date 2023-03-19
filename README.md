@@ -61,12 +61,11 @@
          # Run simulation for Particle System
          e2d.RunSimulation()
          ```
-         <!-- ![Particle simulation output!](https://i.imgur.com/RObiDBU.png "Particle Simulation output") -->
          <img src="https://i.imgur.com/RObiDBU.png" width=70% height=50% alt="Particle Simulation Output">
 
-         <pre>
+         <!-- <pre>
          
-         </pre>
+         </pre> -->
 
        * Simulation for rigid body
          ``` python
