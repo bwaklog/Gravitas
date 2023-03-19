@@ -38,3 +38,4 @@ v 0.0.3 + :
 
 ## Credit
 Introduction to Physics Simulations : https://www.toptal.com/game/video-game-physics-part-i-an-introduction-to-rigid-body-dynamics
+<!-- * Solar system data : https://www.kaggle.com/datasets/jaredsavage/solar-system-major-bodies-data?resource=download -->
