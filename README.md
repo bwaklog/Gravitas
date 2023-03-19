@@ -51,17 +51,23 @@
          ```
       
 
-	* within **[main.py]()**
+	* within **[main.py](https://github.com/bwaklog/Gravitas/blob/dd86f2fb2e104ffd7a138e4cb8ab3af78df7a6f8/main.py)**
    ```python
    # main.py
 	import engine2 as e2d
 
    # Run simulation for Particle System
    e2d.RunSimulation()
+   ```
+   ![Particle simulation output!](https://i.imgur.com/r8IFpgy "Particle Simulation output")
+
+   ``` python
+   import engine2 as e2d
 
    # Run simulation for Rigid Body System
    e2d.RunRigidBodySimulation()
 	```
+   ![Rigid Body simulation output!](https://i.imgur.com/sxSFyJa.png "Rigid Body Simulation output")
 
 #### Features
 v 0.0.2 :

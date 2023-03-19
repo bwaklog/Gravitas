@@ -3,7 +3,7 @@ import random as rd
 import time
 import numpy as np
 
-NUM_PARTICLES = 2
+NUM_PARTICLES = 1
 
 # define two dimentional vector
 class vector2:
