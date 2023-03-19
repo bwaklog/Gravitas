@@ -6,27 +6,16 @@
 #### Features
 v 0.0.2 :
 
-   1. *Charges*
+   1. *Rigid Body simulations (2D) [basic simulation under gravity infulence]*
 
 v 0.0.1 :
 
-   1. *Basic Newtons Gravitation Laws*
-   2. *Oribtal Velocity* (tentitive)
-   3. *Simple Gravitation simulations*
-
-#### Project Map
-v 0.0.3 - 0.0.4
-
-   1. *Atomic Interaction*
-   2. *Charge densities (and gauss law applications)*
-
-v 0.0.5
-
-   1. *Vector and Scalar quantities definitions for more accuracy*
-
-v 0.0.6
-
-   1. 3*D physics. Only based on points and its location in space.*
+   1. *Partilce Simulation (2D) [basic simulation under gravity under gravity influence]*
+   
+#### Roadmap
+v 0.0.3 + :
+   1. Collision detection for Solid Objects
+   2. Constrained Rigid Body Simulation
 
 ## Instructions
 
@@ -36,4 +25,3 @@ v 0.0.6
 
 ## Credit
 Introduction to Physics Simulations : https://www.toptal.com/game/video-game-physics-part-i-an-introduction-to-rigid-body-dynamics
-<!-- * Solar system data : https://www.kaggle.com/datasets/jaredsavage/solar-system-major-bodies-data?resource=download -->
