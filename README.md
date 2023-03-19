@@ -51,23 +51,32 @@
          ```
       
 
-	* within **[main.py](https://github.com/bwaklog/Gravitas/blob/dd86f2fb2e104ffd7a138e4cb8ab3af78df7a6f8/main.py)**
-   ```python
-   # main.py
-	import engine2 as e2d
+	* Within **[main.py](https://github.com/bwaklog/Gravitas/blob/dd86f2fb2e104ffd7a138e4cb8ab3af78df7a6f8/main.py)**
+      
+      * Simulation for rigid
+         ```python
+         # main.py
+	      import engine2 as e2d
 
-   # Run simulation for Particle System
-   e2d.RunSimulation()
-   ```
-   ![Particle simulation output!](https://i.imgur.com/r8IFpgy "Particle Simulation output")
+         # Run simulation for Particle System
+         e2d.RunSimulation()
+         ```
+         <!-- ![Particle simulation output!](https://i.imgur.com/RObiDBU.png "Particle Simulation output") -->
+         <img src="https://i.imgur.com/RObiDBU.png" width=70% height=50% alt="Particle Simulation Output">
 
-   ``` python
-   import engine2 as e2d
+         <pre>
+         
+         </pre>
 
-   # Run simulation for Rigid Body System
-   e2d.RunRigidBodySimulation()
-	```
-   ![Rigid Body simulation output!](https://i.imgur.com/sxSFyJa.png "Rigid Body Simulation output")
+       * Simulation for rigid body
+         ``` python
+         import engine2 as e2d
+
+         # Run simulation for Rigid Body System
+         e2d.RunRigidBodySimulation()
+	      ```
+         <!-- ![Rigid Body simulation output!](https://i.imgur.com/sxSFyJa.png "Rigid Body Simulation output") -->
+         <img src="https://i.imgur.com/sxSFyJa.png" width=70% height=50% alt="Rigid Body Simulation Output">
 
 #### Features
 v 0.0.2 :
