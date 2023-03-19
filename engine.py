@@ -105,11 +105,11 @@ class BoxShape:
 
 class RigidBody:
     def __init__(self, position, linearVelocity, angle, angularVelocity, force, torque, shape):
-        self.position = vector2(x=position[0], y=position[1]).vec()
-        self.linearVelocity = vector2(x=linearVelocity[0], y=linearVelocity[1]).vec()
+        self.position = vector2(x=position.x, y=position.y).vec()
+        self.linearVelocity = vector2(x=linearVelocity.x, y=linearVelocity.y).vec()
         self.angle = angle
         self.angularVelocity = angularVelocity
-        self.force = vector2(x=force[0], y=force[1]).vec()
+        self.force = vector2(x=force.x, y=force.y).vec()
         self.torque = torque
         self.shape = BoxShape(width=shape[0], height=shape[1], mass=1)
 
@@ -118,17 +118,17 @@ rigidBodies = []
 def PrintRigidBodies():
     for i in range(NUM_RIGID_BODIES):
         rigidBody = rigidBodies[i]
-        print(f"body[{i}] p = {rigidBody.position} | a = {rigidBody.angle}")
-        print(f"    ↪ f = {rigidBody.force} | t = {rigidBody.torque}")
+        print(f"body[{i}] position = {rigidBody.position} | angle = {rigidBody.angle}")
+        print(f"    ↪ force = {rigidBody.force} | torque = {rigidBody.torque} | linearv = {rigidBody.linearVelocity}")
         
 def InitializeRigidBodies():
     for _ in range(NUM_RIGID_BODIES):
         rigidBody = RigidBody(
-               position=vector2(x=rd.randint(0, 50), y=rd.randint(0, 50)).vec(),
-               linearVelocity=[0, 0],
+               position=vector2(x=rd.randint(0, 50), y=rd.randint(0, 50)),
+               linearVelocity=vector2(x=0, y=0),
                angle=(rd.randint(0, 360))/360 * np.pi,
                angularVelocity=0,
-               force=vector2(x=0, y=0).vec(),
+               force=vector2(x=0, y=0),
                torque=0,
                shape=[1 + rd.randint(0, 2), 1 + rd.randint(0, 2), 1]
                )
@@ -150,8 +150,33 @@ def ComputeForceAndTorque(rigidBody):
 def RunRigidBodySimulation():
     totalSimulationTime = 10
     currentTime = 0
-    dt = 0
+    dt = 1
 
     InitializeRigidBodies()
     PrintRigidBodies()
 
+    while currentTime < totalSimulationTime:
+        time.sleep(dt)
+
+        for i in range(NUM_RIGID_BODIES):
+            rigidBody = rigidBodies[i]
+
+            ComputeForceAndTorque(rigidBody)
+            linearAcceleration = vector2(
+                    x = rigidBody.force[0] / rigidBody.shape.mass,
+                    y = rigidBody.force[1] / rigidBody.shape.mass
+                    )
+
+            rigidBody.linearVelocity[0] += linearAcceleration.x * dt
+            rigidBody.linearVelocity[1] += linearAcceleration.y * dt
+            rigidBody.position[0] += rigidBody.linearVelocity[0] * dt
+            rigidBody.position[1] += rigidBody.linearVelocity[1] * dt
+
+            angularAcceleration = rigidBody.torque / rigidBody.shape.momentOfInertia
+            rigidBody.angularVelocity = angularAcceleration * dt
+            rigidBody.angle = rigidBody.angularVelocity * dt
+
+        PrintRigidBodies()
+        currentTime += dt
+
+RunRigidBodySimulation()
