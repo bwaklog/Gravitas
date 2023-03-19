@@ -59,7 +59,7 @@
    # Run simulation for Particle System
    e2d.RunSimulation()
    ```
-   ![Particle simulation output!](https://i.imgur.com/r8IFpgy "Particle Simulation output")
+   ![Particle simulation output!](https://i.imgur.com/RObiDBU.png "Particle Simulation output")
 
    ``` python
    import engine2 as e2d
