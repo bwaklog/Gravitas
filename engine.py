@@ -1,12 +1,11 @@
 from operator import index
 import random as rd
 import time
+import numpy as np
 
-NUM_PARTICLES = 1
+NUM_PARTICLES = 2
 
 # define two dimentional vector
-
-
 class vector2:
     def __init__(self, x, y):
         self.x = x
@@ -15,32 +14,28 @@ class vector2:
     def vec(self):
         return [self.x, self.y]
 
+
 # two dimentional particle
-
-
 class Particle:
     def __init__(self, position, velocity, mass):
-        pos = vector2(x=position[0], y=position[1])
-        self.position = pos.vec()
-        vel = vector2(x=velocity[0], y=velocity[1])
-        self.velocity = vel.vec()
+        self.position = vector2(x=position[0], y=position[1]).vec()
+        self.velocity = vector2(x=velocity[0], y=velocity[1]).vec()
         self.mass = mass
 
 
-# particles = [[[rd.randint(0, 50), rd.randint(0, 50)], [0, 0], 1]]
 particles = []
 
 
 def PrintParticles():
     for i in range(NUM_PARTICLES):
-        # particle = Particle(position=i[0], velocity=i[1], mass=i[2])
         particle = particles[i]
-        # print(f"Particle[{i}] {particle.position}, {particle.velocity}, {particle.mass}")
-        print(f"Particle[{i}] {particle.position}")
+        print(
+            f"Particle[{i}] {particle.position}, {particle.velocity}, {particle.mass}")
+        # print(f"Particle[{i}] {particle.position}")
 
 
 def InitializeParticles():
-    for i in range(NUM_PARTICLES):
+    for _ in range(NUM_PARTICLES):
         particle = Particle(
             position=vector2(x=rd.randint(0, 50), y=rd.randint(0, 50)).vec(),
             velocity=vector2(x=0, y=0).vec(),
@@ -51,13 +46,13 @@ def InitializeParticles():
 
 def ComputeForce(particle):
     force = vector2(x=0, y=particle.mass * -9.81)
-    return force.vec()
+    return force
 
 
 def RunSimulation():
     totalSimulationTime = 10  # simulation length is 10 seconds
     currentTime = 0  # simulation starts at time = 0
-    dt = 1  # each step is 1 second
+    dt = 0.5  # each step is 1 second
 
     InitializeParticles()
     PrintParticles()
@@ -67,7 +62,7 @@ def RunSimulation():
 
         for i in range(NUM_PARTICLES):
             particle = particles[i]
-            force = ComputeForce(particle)
+            force = ComputeForce(particle).vec()
             acceleration = vector2(
                 x=force[0],
                 y=force[1]/particle.mass
@@ -88,4 +83,58 @@ def RunSimulation():
         currentTime += dt
 
 
-RunSimulation()
+# RunSimulation()
+
+NUM_RIGID_BODIES = 1
+
+class BoxShape:
+    def __init__(self, width, height, mass):
+        self.width = width
+        self.height = height
+        self.mass = mass
+
+        moi = mass * (width**2, height**2) / 12
+        self.momentOfInertia = moi
+
+#def CalculateBoxInertia(boxShape):
+#    m = boxShape.mass
+#    w = boxShape.width
+#    h = boxShape.height
+#    boxShape.momentOfInertia = m * (w**2 + h**2) / 12
+#    return boxShape.momentOfInertia
+
+class RigidBody:
+    def __init__(self, position, linearVelocity, angle, angularVelocity, force, torque, shape):
+        self.position = vector2(x=position[0], y=position[1]).vec()
+        self.linearVelocity = vector2(x=linearVelocity[0], y=linearVelocity[1]).vec()
+        self.angle = angle
+        self.angularVelocity = angularVelocity
+        self.force = vector2(x=force[0], y=force[1]).vec()
+        self.torque = torque
+        self.shape = BoxShape(width=shape[0], height=shape[1], mass=1)
+
+rigidBodies = []
+
+def PrintRigidBodies():
+    for i in range(NUM_RIGID_BODIES):
+        rigidBody = rigidBodies[i]
+        print(f"body[{i}] p = {rigidBody.position} | a = {rigidBody.angle}")
+        
+def InitializeRigidBodies():
+    for _ in range(NUM_RIGID_BODIES):
+        rigidBody = RigidBody(
+               position=[rd.randint(0, 50), rd.randint(0, 50)],
+               linearVelocity=[0, 0],
+               angle=(rd.randint(0, 360))/360 * np.pi,
+               angularVelocity=0,
+               force=0,
+               torque=0,
+               shape=[1 + rd.randint(0, 2), 1 + rd.randint(0, 2), 1]
+               )
+        
+        rigidBodies.append(rigidBody)
+
+InitializeRigidBodies()
+PrintRigidBodies()
+        
+
