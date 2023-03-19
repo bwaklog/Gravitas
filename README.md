@@ -5,15 +5,62 @@
 
 #### Usage
 * Run Simulation for Particle System:
-   * within **[engine2.py]()**
-      inorder 
+   * within **[engine2.py](https://github.com/bwaklog/Gravitas/blob/683c4f23c8aa3e7fb4fbd026dc35291cb0c57035/engine2.py)**:
+       * as of the time being, variables cant be changed at runtime.
+       * Number of Particles in System : `NUM_PARTICLES = <integral value>`
+       * Num of Rigid Bodies in System : `NUM_RIGID_BODIES = <integral value>`
+       * to change the default and random initialized values for the respective systems
+         ```python
 
-	*
+         NUM_PARTICLES = 1 # any integral_value
+
+         particles = [] # stores list of particle objects
+
+         # line 38 - Particle Simulation
+         def InitializeParticles():
+            for _ in range(NUM_PARTICLES):
+               particle = Particle(
+                  position=vector2(x=rd.randint(0, 50), y=rd,randint(0, 50)).vec(), # range for random positioning (<start>, <stop>)
+                  velocity=vector2(x=0, y=0).vec(), # provide initialized velocities
+                  mass=1 # mass of particle
+               )
+         particles.append(particle)
+         ```
+         ```python
+         NUM_RIGID_BODIES = 1 # any integral_value
+
+         rigidBodies = [] # stores list of particle objects
+         # line 124 - Rigid Body Simulation
+         def InitializeRigidBodies():
+            for _ in range(NUM_RIGID_BODIES):
+               rigidBody = RigidBody(
+                  position=vector2(x=rd.randint(0, 50), y=rd.randint(0, 50)), # range for random positioning (<start>, <stop>)
+                  linearVelocity=vector2(x=0, y=0), # provide initialized linear velocities
+                  angle=(rd.randint(0, 360))/360 * np.pi, # initialized angle in radians
+                  angularVelocity=0, # initial angular velocity
+                  force=vector2(x=0, y=0), 
+                  torque=0,
+                  shape=[1 + rd.randint(0, 2), 1 + rd.randint(0, 2), 1]
+                  # shape is defined in following manner:
+                  # [<width of the BoxShape>, <length of BoxShape>, <mass of BoxShape>]
+               )
+               # force and torque are set to 0 here (which means its intial value is null / undefined)
+               # it is later on computed on calling ComputeForceAndTorque(<rigidbody>) function
+        
+         rigidBodies.append(rigidBody)
+         ```
+      
+
+	* within **[main.py]()**
    ```python
    # main.py
 	import engine2 as e2d
 
+   # Run simulation for Particle System
    e2d.RunSimulation()
+
+   # Run simulation for Rigid Body System
+   e2d.RunRigidBodySimulation()
 	```
 
 #### Features
