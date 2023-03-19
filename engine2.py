@@ -179,4 +179,3 @@ def RunRigidBodySimulation():
         PrintRigidBodies()
         currentTime += dt
 
-RunRigidBodySimulation()
