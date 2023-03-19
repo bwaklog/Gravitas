@@ -119,6 +119,7 @@ def PrintRigidBodies():
     for i in range(NUM_RIGID_BODIES):
         rigidBody = rigidBodies[i]
         print(f"body[{i}] p = {rigidBody.position} | a = {rigidBody.angle}")
+        print(f"    ↪ f = {rigidBody.force} | t = {rigidBody.torque}")
         
 def InitializeRigidBodies():
     for _ in range(NUM_RIGID_BODIES):
@@ -134,7 +135,23 @@ def InitializeRigidBodies():
         
         rigidBodies.append(rigidBody)
 
-InitializeRigidBodies()
-PrintRigidBodies()
-        
+def ComputeForceAndTorque(rigidBody):
+    f = vector2(x=0, y=100)
+    rigidBody.force[0], rigidBody.force[1] = f.x, f.y
+
+    r = vector2(x=rigidBody.shape.width / 2, y=rigidBody.shape.height /2)
+    rigidBody.torque = r.x * f.y - r.y * f.x
+
+#InitializeRigidBodies()
+#PrintRigidBodies()
+#ComputeForceAndTorque(rigidBodies[0])
+#PrintRigidBodies()
+
+def RunRigidBodySimulation():
+    totalSimulationTime = 10
+    currentTime = 0
+    dt = 0
+
+    InitializeRigidBodies()
+    PrintRigidBodies()
 
